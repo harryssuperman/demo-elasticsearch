@@ -1,0 +1,16 @@
+= Demo Project for Spring Boot 1.5.22.RELEASE and Elasticsearch 2.4.0
+
+*Elasticsearch local or with podman should run:*
+
+_podman run --name elasticsearch --pod new:mypod --rm -p 9200:9200 -p 9300:9300 elasticsearch:2.4.6_
+
+*Create index in ES*
+
+_curl -XPUT 'http://localhost:9200/elasticsearch/' -d "{
+"settings" : {
+"index" : {
+"number_of_shards" : 1, "number_of_replicas" : 0 } } }"_
+
+*Start Application*
+
+_./mvnw spring-boot:run_
